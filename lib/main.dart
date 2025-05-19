@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_anwar/meet_1.dart';
-import 'package:ppkd_anwar/tugas_1_flutter.dart';
-
+import 'tugas_1_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,11 +15,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'PPKD B 2',
       theme: ThemeData(
-        
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
       ),
-      home: TugasSatu (),
+      home: TugasSatu(),
     );
   }
 }
-

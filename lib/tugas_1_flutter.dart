@@ -17,31 +17,35 @@ class _TugasSatuState extends State<TugasSatu> {
         centerTitle: true,
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text.rich(
-          TextSpan (
-            text: "Nama : Andi Rahmat",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-              color: Colors.black,
-                      
+            TextSpan(
+              text: "Nama : Andi Rahmat",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
             ),
           ),
-          ),
+          SizedBox(height: 10),
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Icon(Icons.location_on),
               Text(
-                ""
+                "Jakarta",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
               ),
-            
             ],
-          )
+          ),
+          SizedBox(height: 10),
+          Text(
+            "Seorang pelajar yang sedang belajar Flutter",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+          ),
         ],
-      ), 
+      ),
     );
   }
 }
