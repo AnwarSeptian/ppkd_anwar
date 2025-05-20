@@ -1,50 +1,56 @@
-
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+class MyHome extends StatefulWidget {
+  const MyHome({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHome> createState() => _MyHomeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {    
-      _counter++;
-    });
-  }
-
+class _MyHomeState extends State<MyHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        backgroundColor: Colors.yellow,
+        title: Text("Profil Saya"),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search, color: Colors.black),
+            onPressed: () {
+              // Action for search button
+            },
+          ),
+        ],
       ),
-      body: Center(
-        
-        child: Column(
+      body: Column( 
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+          Text.rich(
+            TextSpan(
+              text: "Nama: Vino",
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w500,
+                color: Colors.black
+              ),
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), 
+          ),
+          SizedBox(height: 20,),
+          Text.rich(
+            TextSpan(
+              text: "Nama 1 : Vino",
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w500,
+                color: Colors.black
+              ),
+            ),
+          ),
+        ],
+      ) ,
     );
   }
 }

@@ -9,6 +9,7 @@ class TugasSatu extends StatefulWidget {
 
 class _TugasSatuState extends State<TugasSatu> {
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -20,7 +21,7 @@ class _TugasSatuState extends State<TugasSatu> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text.rich(
-            TextSpan(
+            TextSpan  (
               text: "Nama : Andi Rahmat",
               style: TextStyle(
                 fontSize: 24,
@@ -29,17 +30,18 @@ class _TugasSatuState extends State<TugasSatu> {
               ),
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 8),
           Row(
             children: [
               Icon(Icons.location_on),
               Text(
+                
                 "Jakarta",
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
               ),
             ],
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 8),
           Text(
             "Seorang pelajar yang sedang belajar Flutter",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
