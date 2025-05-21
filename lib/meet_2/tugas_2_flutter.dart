@@ -19,6 +19,78 @@ class TugasDua extends StatelessWidget {
           ),
         ],
       ),
+      
+      drawer: Drawer( 
+        child: Card(color: Colors.white,
+          child: Column(
+            children: [
+              SizedBox(height: 16),
+              ElevatedButton(
+            onPressed: () {
+              print("test");
+            },
+            
+            
+            child: Row(
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.home),
+                    SizedBox(width: 8),
+                    Text.rich(
+                      TextSpan(
+                        text: "Home",
+                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height:4),
+          ElevatedButton(
+            onPressed: () {
+              print("test");
+            },
+            child: Row(
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.edit),
+                    SizedBox(width: 8),
+                    Text.rich(
+                      TextSpan(
+                        text: "Edit Profile",
+                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+         //Expanded Drawer
+          Expanded(
+            child: Container(
+              height: 100,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.lightBlue,
+                borderRadius: BorderRadius.circular(20),
+                gradient: LinearGradient(colors: [
+                  Colors.black38,
+                  Colors.white
+                ])
+              ),
+              padding: const EdgeInsets.all(22)
+            ),
+          ),
+           ],
+          ),
+        ),
+      ),
+
       body: Column(
         children: [
           SizedBox(height: 20),
@@ -57,12 +129,12 @@ class TugasDua extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.blueAccent),
             child: Row(
               children: [
-                Icon(Icons.email_sharp),
+                Icon(Icons.email_sharp,color: Colors.white),
                 SizedBox(width: 8),
                 Text.rich(
                   TextSpan(
-                    text: "Email  : uchihaasep221@gmail.com",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    text: "Email  : uchihaasep@gmail.com",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white),
                   ),
                 ),
               ],
@@ -75,12 +147,12 @@ class TugasDua extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.blueAccent),
             child: Row(
               children: [
-                Icon(Icons.phone),
+                Icon(Icons.phone,color: Colors.white),
                 SizedBox(width: 8),
                 Text.rich(
                   TextSpan(
                     text: "No Handphone : 085765442541",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white),
                   ),
                 ),
               ],
@@ -126,7 +198,7 @@ class TugasDua extends StatelessWidget {
                 TextSpan(
                   text:
                       "Asep Uchiha — Mobile Developer, penyuka kopi, dan pecinta seni. Berdomisili di Jakarta. ITAMI O KANJIRO , SHINRA TENSEIIII!  ",
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 16),
                 ),
               ),
             ),
