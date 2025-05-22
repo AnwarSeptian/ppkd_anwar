@@ -21,16 +21,14 @@ class TugasDua extends StatelessWidget {
       ),
       
       drawer: Drawer( 
-        child: Card(color: Colors.white,
-          child: Column(
+        child: Card(
+        child: Column(
             children: [
-              SizedBox(height: 16),
-              ElevatedButton(
+            SizedBox(height: 16),
+            ElevatedButton(
             onPressed: () {
               print("test");
             },
-            
-            
             child: Row(
               children: [
                 Row(
@@ -82,10 +80,10 @@ class TugasDua extends StatelessWidget {
                   Colors.black38,
                   Colors.white
                 ])
+               ),
+                padding: const EdgeInsets.all(22)
               ),
-              padding: const EdgeInsets.all(22)
             ),
-          ),
            ],
           ),
         ),
