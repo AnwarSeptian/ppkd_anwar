@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:ppkd_anwar/meet_4/meet_4a.dart';
 import 'package:ppkd_anwar/meet_4/meet_4b.dart';
 import 'package:ppkd_anwar/meet_4/tugas_3_flutter.dart';
-=======
->>>>>>> d526b17ca9934fad889600c63f8212814c5c1d32
 import 'package:ppkd_anwar/meet_4/tugas_4_flutter.dart';
 
 void main() {
