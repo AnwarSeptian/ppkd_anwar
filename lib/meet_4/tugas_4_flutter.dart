@@ -187,7 +187,7 @@ class TugasEmpat extends StatelessWidget {
                               leading: Image.asset(
                                 "assets/images/dettolcair.jpg",
                               ),
-                              title: Text("Uchiha Asep"),
+                              title: Text("Dettol Cair"),
                               trailing: Icon(Icons.keyboard_arrow_right),
                               shape: Border.all(width: 1),
                               subtitle: Text("Harga Rp.64.000"),
