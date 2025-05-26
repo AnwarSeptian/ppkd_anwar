@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class TugasEnam extends StatelessWidget {
+class TugasEnam extends StatefulWidget {
   const TugasEnam({super.key});
 
+  @override
+  State<TugasEnam> createState() => _TugasEnamState();
+}
+
+// final passwordController - TextEditingController();
+
+class _TugasEnamState extends State<TugasEnam> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,15 +34,145 @@ class TugasEnam extends StatelessWidget {
             buildPassword(),
             SizedBox(height: 20),
             buildFieldpassword(),
-            SizedBox(height: 8),
             buildForgotpassword(),
-            SizedBox(height: 18),
+            SizedBox(height: 14),
             buildButtonlogin(),
             SizedBox(height: 12),
             buildSignup(),
+            buildOrsignwith(),
+            SizedBox(height: 16),
+            buildGoogleandfacebook(),
+            SizedBox(height: 16),
+            buildJoinus(),
           ],
         ),
       ),
+    );
+  }
+
+  SizedBox buildButtonlogin() {
+    return SizedBox(
+      height: 56,
+      width: 327,
+      child: ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Color(0xff283FB1),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(32),
+          ),
+        ),
+        child: Text(
+          "Login",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+
+  Row buildJoinus() {
+    return Row(
+      children: [
+        Text(
+          "Don't have an account?",
+          style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+        ),
+        TextButton(
+          onPressed: () {},
+          child: Text(
+            "Join Us",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 12,
+              color: Color(0xffEA9459),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row buildGoogleandfacebook() {
+    return Row(
+      children: [
+        Expanded(
+          child: SizedBox(
+            height: 48,
+            width: 155,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xffFAFAFA),
+                shadowColor: Colors.transparent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32),
+                ),
+              ),
+
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/images/iconGoogle (1).png",
+                    width: 24,
+                    height: 24,
+                  ),
+                  SizedBox(width: 8),
+
+                  Text("Google", style: TextStyle(color: Colors.black)),
+                ],
+              ),
+            ),
+          ),
+        ),
+        SizedBox(width: 16),
+        Expanded(
+          child: SizedBox(
+            height: 48,
+            width: 155,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xffFAFAFA),
+                shadowColor: Colors.transparent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32),
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/images/btnSigninwithFb (1).png",
+                    width: 24,
+                    height: 24,
+                  ),
+                  SizedBox(width: 8),
+
+                  Text("Facebook", style: TextStyle(color: Colors.black)),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row buildOrsignwith() {
+    return Row(
+      children: [
+        Expanded(
+          child: Divider(color: Color(0xffF2F2F2), thickness: 4, endIndent: 14),
+        ),
+        Text(
+          "Or Sign In With",
+          style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
+        ),
+        Expanded(
+          child: Divider(color: Color(0xffF2F2F2), thickness: 4, indent: 14),
+        ),
+      ],
     );
   }
 
@@ -49,10 +186,11 @@ class TugasEnam extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
           ),
         ),
-        SizedBox(width: 10),
-        Text.rich(
-          TextSpan(
-            text: "Sign Up",
+
+        TextButton(
+          onPressed: () {},
+          child: Text(
+            "Sign Up",
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 12,
@@ -64,41 +202,17 @@ class TugasEnam extends StatelessWidget {
     );
   }
 
-  GestureDetector buildButtonlogin() {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        height: 56,
-        width: 327,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(32),
-          color: Color(0xff283FB1),
-        ),
-
-        child: Center(
-          child: Text(
-            "Login",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              color: Color(0xffFFFFFF),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
   Align buildForgotpassword() {
     return Align(
       alignment: Alignment.centerRight,
-      child: Text.rich(
-        TextSpan(
-          text: "Forgot Password?",
+      child: TextButton(
+        onPressed: () {},
+        child: Text(
+          "Forgot Password?",
           style: TextStyle(
+            color: Color(0xffEA9459),
             fontWeight: FontWeight.bold,
             fontSize: 12,
-            color: Color(0xffEA9459),
           ),
         ),
       ),
@@ -107,8 +221,18 @@ class TugasEnam extends StatelessWidget {
 
   TextField buildFieldpassword() {
     return TextField(
+      onChanged: (value) {
+        print(value);
+        setState(() {});
+      },
+      onSubmitted: (value) {
+        print(value);
+      },
+      obscureText: true,
+      obscuringCharacter: "•",
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32)),
+        suffixIcon: Icon(Icons.visibility_off, color: Color(0xff888888)),
       ),
     );
   }
@@ -117,7 +241,7 @@ class TugasEnam extends StatelessWidget {
     return Text.rich(
       TextSpan(
         text: "Password",
-        style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
+        style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
       ),
     );
   }
@@ -136,7 +260,7 @@ class TugasEnam extends StatelessWidget {
         Text.rich(
           TextSpan(
             text: "Email Address",
-            style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
+            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
           ),
         ),
       ],
@@ -149,7 +273,7 @@ class TugasEnam extends StatelessWidget {
         Text.rich(
           TextSpan(
             text: "Sign In your account",
-            style: TextStyle(fontWeight: FontWeight.w300, fontSize: 14),
+            style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
           ),
         ),
       ],
@@ -173,7 +297,9 @@ class TugasEnam extends StatelessWidget {
         Row(
           children: [
             SizedBox(height: 30),
-            Container(
+            SizedBox(
+              height: 28,
+              width: 135,
               child: Row(
                 children: [
                   InkWell(
@@ -182,7 +308,7 @@ class TugasEnam extends StatelessWidget {
                     child: Icon(
                       Icons.navigate_before_sharp,
                       color: Color(0xff262626),
-                      size: 30,
+                      size: 24,
                     ),
                   ),
                   SizedBox(width: 24),
