@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_anwar/meet_12/meet_12a.dart';
+import 'package:ppkd_anwar/meet_4/tugas_4_flutter.dart';
 
 class TugasEnam extends StatefulWidget {
   const TugasEnam({super.key});
@@ -55,7 +57,13 @@ class _TugasEnamState extends State<TugasEnam> {
       height: 56,
       width: 327,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (_) => TugasEmpat()),
+          );
+        },
+
         style: ElevatedButton.styleFrom(
           backgroundColor: Color(0xff283FB1),
           shape: RoundedRectangleBorder(
@@ -100,7 +108,12 @@ class _TugasEnamState extends State<TugasEnam> {
             height: 48,
             width: 155,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => MeetDuabelas()),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xffFAFAFA),
                 shadowColor: Colors.transparent,
@@ -303,6 +316,7 @@ class _TugasEnamState extends State<TugasEnam> {
               child: Row(
                 children: [
                   InkWell(
+                    splashColor: Colors.black12,
                     onTap: () {},
 
                     child: Icon(

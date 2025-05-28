@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class TugasDua extends StatelessWidget {
   const TugasDua({super.key});
+  static const String id = "/halaman 3a";
 
   @override
   Widget build(BuildContext context) {
@@ -14,77 +15,85 @@ class TugasDua extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.search, color: Colors.white, size: 40),
             onPressed: () {
-              // Action for search button
+              // Navigator.pushAndRemoveUntil(context,
+              // MaterialPageRoute(builder: (context) =>   MeetEmpatA())
+              // (route) =>fals
+              // );
             },
           ),
         ],
       ),
-      
-      drawer: Drawer( 
+
+      drawer: Drawer(
         child: Card(
-        child: Column(
+          child: Column(
             children: [
-            SizedBox(height: 16),
-            ElevatedButton(
-            onPressed: () {
-              print("test");
-            },
-            child: Row(
-              children: [
-                Row(
+              SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  print("test");
+                },
+                child: Row(
                   children: [
-                    Icon(Icons.home),
-                    SizedBox(width: 8),
-                    Text.rich(
-                      TextSpan(
-                        text: "Home",
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
+                    Row(
+                      children: [
+                        Icon(Icons.home),
+                        SizedBox(width: 8),
+                        Text.rich(
+                          TextSpan(
+                            text: "Home",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ],
-            ),
-          ),
-          SizedBox(height:4),
-          ElevatedButton(
-            onPressed: () {
-              print("test");
-            },
-            child: Row(
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.edit),
-                    SizedBox(width: 8),
-                    Text.rich(
-                      TextSpan(
-                        text: "Edit Profile",
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-         //Expanded Drawer
-          Expanded(
-            child: Container(
-              height: 100,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.lightBlue,
-                borderRadius: BorderRadius.circular(20),
-                gradient: LinearGradient(colors: [
-                  Colors.black38,
-                  Colors.white
-                ])
-               ),
-                padding: const EdgeInsets.all(22)
               ),
-            ),
-           ],
+              SizedBox(height: 4),
+              ElevatedButton(
+                onPressed: () {
+                  print("test");
+                },
+                child: Row(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.edit),
+                        SizedBox(width: 8),
+                        Text.rich(
+                          TextSpan(
+                            text: "Edit Profile",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              //Expanded Drawer
+              Expanded(
+                child: Container(
+                  height: 100,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.lightBlue,
+                    borderRadius: BorderRadius.circular(20),
+                    gradient: LinearGradient(
+                      colors: [Colors.black38, Colors.white],
+                    ),
+                  ),
+                  padding: const EdgeInsets.all(22),
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -127,12 +136,16 @@ class TugasDua extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.blueAccent),
             child: Row(
               children: [
-                Icon(Icons.email_sharp,color: Colors.white),
+                Icon(Icons.email_sharp, color: Colors.white),
                 SizedBox(width: 8),
                 Text.rich(
                   TextSpan(
                     text: "Email  : uchihaasep@gmail.com",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],
@@ -145,12 +158,16 @@ class TugasDua extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.blueAccent),
             child: Row(
               children: [
-                Icon(Icons.phone,color: Colors.white),
+                Icon(Icons.phone, color: Colors.white),
                 SizedBox(width: 8),
                 Text.rich(
                   TextSpan(
                     text: "No Handphone : 085765442541",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,color: Colors.white),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ],

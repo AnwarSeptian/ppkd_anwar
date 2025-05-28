@@ -54,6 +54,7 @@ class _MeetEmpatBState extends State<MeetEmpatB> {
               onChanged: (value) {
                 print(value);
                 setState(() {
+                  passwordController.clear();
                   passwordController.text = value;
                 });
               },
@@ -82,7 +83,6 @@ class _MeetEmpatBState extends State<MeetEmpatB> {
               ),
             ),
             SizedBox(height: 50),
-            Text(passwordController.text),
           ],
         ),
       ),

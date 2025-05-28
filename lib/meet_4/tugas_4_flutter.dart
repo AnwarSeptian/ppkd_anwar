@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_anwar/meet_2/tugas_2_flutter.dart';
 
 class TugasEmpat extends StatelessWidget {
   const TugasEmpat({super.key});
@@ -242,7 +243,14 @@ class TugasEmpat extends StatelessWidget {
                   IconButton(
                     icon: Icon(Icons.person_3_sharp, size: 32),
                     padding: EdgeInsets.only(bottom: 12),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TugasDua(),
+                        ),
+                      );
+                    },
                   ),
                   IconButton(
                     icon: Icon(Icons.shopping_cart_checkout, size: 32),
