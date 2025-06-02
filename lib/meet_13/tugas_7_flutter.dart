@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_anwar/constant/app_format.dart';
 import 'package:ppkd_anwar/meet_13/mode_gelap.dart';
-import 'package:ppkd_anwar/meet_13/mode_kategori.dart';
 import 'package:ppkd_anwar/meet_13/mode_syarat.dart';
 import 'package:ppkd_anwar/meet_13/mode_tanggal.dart';
 import 'package:ppkd_anwar/meet_13/mode_waktu.dart';
+import 'package:ppkd_anwar/meet_14/kategori_produk.dart';
+import 'package:ppkd_anwar/meet_14/kategori_produk_a.dart';
+import 'package:ppkd_anwar/meet_14/pakaian_pria.dart';
 
 class TugasTujuh extends StatefulWidget {
   const TugasTujuh({super.key});
@@ -23,7 +25,9 @@ class _TugasTujuhState extends State<TugasTujuh> {
   static const List<Widget> _screen = [
     ModeSyarat(),
     ModeGelap(),
-    ModeKategori(),
+    KategoriProduk(),
+    KategoriProdukA(),
+    PakaianPria(),
     ModeTanggal(),
     ModeWaktu(),
   ];
@@ -42,7 +46,7 @@ class _TugasTujuhState extends State<TugasTujuh> {
 
       appBar: AppBar(
         backgroundColor: Colors.lightBlueAccent,
-        title: Text("Tugas Pertemuan Tujuh", style: AppStyle.fontBold()),
+        title: Text("Home", style: AppStyle.fontBold()),
         centerTitle: true,
       ),
       drawer: Drawer(
@@ -85,9 +89,25 @@ class _TugasTujuhState extends State<TugasTujuh> {
             ),
             ListTile(
               leading: Icon(Icons.shopping_bag),
-              title: Text("Pilih Kategori Produk"),
+              title: Text("Kategori Produk"),
               onTap: () {
                 _itemTapped(2);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_bag),
+              title: Text("Kategori Produk Detail"),
+              onTap: () {
+                _itemTapped(3);
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_bag),
+              title: Text("Pakaian Pria"),
+              onTap: () {
+                _itemTapped(4);
                 Navigator.pop(context);
               },
             ),
@@ -96,7 +116,7 @@ class _TugasTujuhState extends State<TugasTujuh> {
               leading: Icon(Icons.calendar_month),
               title: Text("Tanggal lahir"),
               onTap: () {
-                _itemTapped(3);
+                _itemTapped(5);
                 Navigator.pop(context);
               },
             ),
@@ -104,7 +124,7 @@ class _TugasTujuhState extends State<TugasTujuh> {
               leading: Icon(Icons.watch_later_sharp),
               title: Text("Waktu"),
               onTap: () {
-                _itemTapped(4);
+                _itemTapped(6);
                 Navigator.pop(context);
               },
             ),
