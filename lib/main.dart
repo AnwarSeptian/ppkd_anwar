@@ -6,6 +6,7 @@ import 'package:ppkd_anwar/meet_13/mode_syarat.dart';
 import 'package:ppkd_anwar/meet_13/mode_tanggal.dart';
 import 'package:ppkd_anwar/meet_13/mode_waktu.dart';
 import 'package:ppkd_anwar/meet_13/tugas_8_flutter.dart';
+import 'package:ppkd_anwar/meet_6/tugas_6.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: "/",
       routes: {
-        "/": (context) => TugasDelapan(),
+        "/": (context) => TugasEnam(),
         MeetDuabelas.id: (context) => MeetDuabelas(),
         ModeGelap.id: (context) => ModeGelap(),
         ModeTanggal.id: (context) => ModeTanggal(),

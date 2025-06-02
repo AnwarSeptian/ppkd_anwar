@@ -15,8 +15,9 @@ class _ModeWaktuState extends State<ModeWaktu> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          SizedBox(height: 40),
           ElevatedButton(
             onPressed: () async {
               final TimeOfDay? picked = await showTimePicker(

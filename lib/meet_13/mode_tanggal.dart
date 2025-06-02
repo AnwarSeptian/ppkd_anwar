@@ -14,8 +14,9 @@ class _ModeTanggalState extends State<ModeTanggal> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          SizedBox(height: 20),
           ElevatedButton(
             onPressed: () async {
               final DateTime? picked = await showDatePicker(

@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_anwar/meet_12/meet_12a.dart';
+import 'package:ppkd_anwar/meet_13/tugas_7_flutter.dart';
+import 'package:ppkd_anwar/meet_13/tugas_8_flutter.dart';
+import 'package:ppkd_anwar/meet_14/tugas_14.dart';
 import 'package:ppkd_anwar/meet_4/tugas_4_flutter.dart';
 
 class TugasEnam extends StatefulWidget {
-  const TugasEnam({super.key});
+  const TugasEnam({super.key, this.valueCheck});
+  static const String id = "/tugas_6";
+  final bool? valueCheck;
 
   @override
   State<TugasEnam> createState() => _TugasEnamState();
@@ -12,43 +17,73 @@ class TugasEnam extends StatefulWidget {
 // final passwordController - TextEditingController();
 
 class _TugasEnamState extends State<TugasEnam> {
+  bool _isChecked = false;
+  bool valueCheck = false;
+  void initState() {
+    super.initState();
+    valueCheck = widget.valueCheck ?? false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xfffffffff),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
 
-          children: [
-            SizedBox(height: 16),
-            buildLogin(),
-            SizedBox(height: 30),
-            buildWelcome(),
-            SizedBox(height: 16),
-            buildSignin(),
-            SizedBox(height: 32),
-            buildEmail(),
-            SizedBox(height: 20),
-            buildFieldemail(),
-            SizedBox(height: 24),
-            buildPassword(),
-            SizedBox(height: 20),
-            buildFieldpassword(),
-            buildForgotpassword(),
-            SizedBox(height: 14),
-            buildButtonlogin(),
-            SizedBox(height: 12),
-            buildSignup(),
-            buildOrsignwith(),
-            SizedBox(height: 16),
-            buildGoogleandfacebook(),
-            SizedBox(height: 16),
-            buildJoinus(),
-          ],
+            children: [
+              SizedBox(height: 16),
+              buildLogin(),
+              SizedBox(height: 30),
+              buildWelcome(),
+              SizedBox(height: 16),
+              buildSignin(),
+              SizedBox(height: 32),
+              buildEmail(),
+              SizedBox(height: 20),
+              buildFieldemail(),
+              SizedBox(height: 24),
+              buildPassword(),
+              SizedBox(height: 20),
+              buildFieldpassword(),
+              buildForgotpassword(),
+              SizedBox(height: 14),
+              buildButtonlogin(),
+              SizedBox(height: 12),
+              buildSignup(),
+              buildOrsignwith(),
+              SizedBox(height: 16),
+              buildGoogleandfacebook(),
+              SizedBox(height: 16),
+              buildJoinus(),
+              SizedBox(height: 16),
+              buildSyarat(),
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Row buildSyarat() {
+    return Row(
+      children: [
+        Checkbox(
+          value: _isChecked,
+          onChanged: (value) {
+            setState(() {
+              _isChecked = value ?? false;
+            });
+          },
+        ),
+        Text(
+          "Saya menyetujui semua persyaratan yang berlaku",
+          style: TextStyle(fontSize: 12),
+        ),
+      ],
     );
   }
 
@@ -57,12 +92,15 @@ class _TugasEnamState extends State<TugasEnam> {
       height: 56,
       width: 327,
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (_) => TugasEmpat()),
-          );
-        },
+        onPressed:
+            _isChecked
+                ? () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (_) => TugasDelapan()),
+                  );
+                }
+                : null,
 
         style: ElevatedButton.styleFrom(
           backgroundColor: Color(0xff283FB1),
@@ -70,6 +108,7 @@ class _TugasEnamState extends State<TugasEnam> {
             borderRadius: BorderRadius.circular(32),
           ),
         ),
+
         child: Text(
           "Login",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -86,7 +125,8 @@ class _TugasEnamState extends State<TugasEnam> {
           style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: _isChecked ? () {} : null,
+
           child: Text(
             "Join Us",
             style: TextStyle(
@@ -145,6 +185,7 @@ class _TugasEnamState extends State<TugasEnam> {
             width: 155,
             child: ElevatedButton(
               onPressed: () {},
+
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xffFAFAFA),
                 shadowColor: Colors.transparent,
@@ -201,7 +242,12 @@ class _TugasEnamState extends State<TugasEnam> {
         ),
 
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Tugas14()),
+            );
+          },
           child: Text(
             "Sign Up",
             style: TextStyle(

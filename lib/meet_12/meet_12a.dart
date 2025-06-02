@@ -11,6 +11,12 @@ class MeetDuabelas extends StatefulWidget {
 }
 
 class _MeetDuabelasState extends State<MeetDuabelas> {
+  Map<String, Color> warna = {
+    "merah": Colors.red,
+    "hijau": Colors.green,
+    "kuning": Colors.amber,
+  };
+  String? isSelected;
   @override
   Widget build(BuildContext context) {
     bool isSwitchOn = false;
@@ -24,24 +30,31 @@ class _MeetDuabelasState extends State<MeetDuabelas> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        // child: Column(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   // children: [
-        //     // bool? valueCheck
-        //     // CheckBoxCustom(valueCheck: valueCheck),
-        //     // Checkbox(
-        //     //   value: ValueCheck,
-        //     //   onChanged: (value) {
-        //     //     setState(() {
-        //     //       print("CheckBox value change:$value");
-        //     //          valueCheck = value ?? false;
-        //         });
-        //       },
-        //     ),
-        //   ],
+      body: Column(
+        children: [
+          DropdownButton<String>(
+            value: isSelected,
+            hint: Text("Pilih"),
+            items:
+                warna.entries.map((entry) {
+                  return DropdownMenuItem<String>(
+                    value: entry.key,
+                    child: Text(entry.key),
+                  );
+                }).toList(),
+            onChanged: (String? value) {
+              setState(() {
+                isSelected = value;
+              });
+            },
+          ),
+          Container(
+            height: 150,
+            width: 150,
+            color: warna[isSelected] ?? Colors.grey,
+          ),
+        ],
       ),
-      // ),
     );
   }
 }

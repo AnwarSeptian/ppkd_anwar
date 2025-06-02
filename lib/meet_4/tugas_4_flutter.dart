@@ -8,7 +8,7 @@ class TugasEmpat extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF71C0BB),
+        backgroundColor: Color(0xFFAEC8A4),
         title: Text("Belanja Online"),
       ),
       body: Column(
@@ -25,10 +25,10 @@ class TugasEmpat extends StatelessWidget {
                       SizedBox(height: 4),
                       TextField(
                         decoration: InputDecoration(
-                          hintText: "Masukkan Nama Anda",
+                          hintText: "Masukkan Nama Penerima",
                           hintStyle: TextStyle(fontSize: 12),
                           filled: true,
-                          fillColor: Color(0xFFFFF5E4),
+                          fillColor: Color(0x60AEC8A4),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: BorderSide(
@@ -49,10 +49,10 @@ class TugasEmpat extends StatelessWidget {
                       SizedBox(height: 10),
                       TextField(
                         decoration: InputDecoration(
-                          hintText: "Masukkan Email Anda",
+                          hintText: "Masukkan Email Penerima",
                           hintStyle: TextStyle(fontSize: 12),
                           filled: true,
-                          fillColor: Color(0xFFFFF5E4),
+                          fillColor: Color(0x60AEC8A4),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: BorderSide(
@@ -76,7 +76,7 @@ class TugasEmpat extends StatelessWidget {
                           hintText: "Masukkan No Handphone",
                           hintStyle: TextStyle(fontSize: 12),
                           filled: true,
-                          fillColor: Color(0xFFFFF5E4),
+                          fillColor: Color(0x60AEC8A4),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: BorderSide(
@@ -107,7 +107,7 @@ class TugasEmpat extends StatelessWidget {
                           hintText: "Tulis disini",
                           hintStyle: TextStyle(fontSize: 12),
                           filled: true,
-                          fillColor: Color(0xFFFFF5E4),
+                          fillColor: Color(0x60AEC8A4),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: BorderSide(
@@ -228,7 +228,7 @@ class TugasEmpat extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              color: Color(0xFF6A9C89),
+              color: Color(0xFFAEC8A4),
               padding: EdgeInsets.symmetric(horizontal: 42, vertical: 24),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

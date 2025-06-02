@@ -5,6 +5,7 @@ import 'package:ppkd_anwar/meet_13/mode_kategori.dart';
 import 'package:ppkd_anwar/meet_13/mode_syarat.dart';
 import 'package:ppkd_anwar/meet_13/mode_tanggal.dart';
 import 'package:ppkd_anwar/meet_13/mode_waktu.dart';
+import 'package:ppkd_anwar/meet_4/tugas_4_flutter.dart';
 
 class TugasTujuh extends StatefulWidget {
   const TugasTujuh({super.key});
@@ -21,9 +22,8 @@ class _TugasTujuhState extends State<TugasTujuh> {
   final int _buttonSelected = 0;
 
   static const List<Widget> _screen = [
-    ModeSyarat(),
+    // ModeSyarat(),
     ModeGelap(),
-    ModeKategori(),
     ModeTanggal(),
     ModeWaktu(),
   ];
@@ -41,8 +41,15 @@ class _TugasTujuhState extends State<TugasTujuh> {
       backgroundColor: isSwitchOn ? Colors.grey : Colors.white,
 
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
-        title: Text("Tugas Pertemuan Tujuh", style: AppStyle.fontBold()),
+        backgroundColor: Color(0xffE7EFC7),
+        title: Text(
+          "HOME",
+          style: TextStyle(
+            color: Color(0xff3B3B1A),
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
         centerTitle: true,
       ),
       drawer: Drawer(
@@ -50,25 +57,46 @@ class _TugasTujuhState extends State<TugasTujuh> {
           children: [
             DrawerHeader(
               // padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(color: Colors.blue),
+              decoration: BoxDecoration(color: Color(0xffAEC8A4)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CircleAvatar(
                     radius: 40,
-                    backgroundImage: AssetImage("assets/images/fotoprofil.png"),
+                    backgroundImage: AssetImage("assets/images/enzo.png"),
                     // child: Image.asset(),
                   ),
                   SizedBox(height: 4),
-                  Text("SASASS"),
-                  Text("sasasas@gmail.com"),
+                  Text("Enzo Fernandes"),
+                  Text("e.fernandes8@gmail.com"),
                 ],
               ),
             ),
             SizedBox(height: 24),
+
+            // ListTile(
+            //   leading: Icon(Icons.rule_sharp),
+            //   title: Text("Syarat & Ketentuan"),
+            //   onTap: () {
+            //     _itemTapped(0);
+            //     Navigator.pop(context);
+            //   },
+            // ),
             ListTile(
-              leading: Icon(Icons.rule_sharp),
-              title: Text("Syarat & Ketentuan"),
+              leading: Icon(Icons.shopping_cart),
+              title: Text("Belanja"),
+              onTap: () {
+                setState(() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => TugasEmpat()),
+                  );
+                });
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.dark_mode_sharp),
+              title: Text("Mode Gelap"),
               onTap: () {
                 _itemTapped(0);
                 Navigator.pop(context);
@@ -76,27 +104,10 @@ class _TugasTujuhState extends State<TugasTujuh> {
             ),
 
             ListTile(
-              leading: Icon(Icons.dark_mode_sharp),
-              title: Text("Mode Gelap"),
+              leading: Icon(Icons.calendar_month),
+              title: Text("Atur Tanggal"),
               onTap: () {
                 _itemTapped(1);
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.shopping_bag),
-              title: Text("Pilih Kategori Produk"),
-              onTap: () {
-                _itemTapped(2);
-                Navigator.pop(context);
-              },
-            ),
-
-            ListTile(
-              leading: Icon(Icons.calendar_month),
-              title: Text("Tanggal lahir"),
-              onTap: () {
-                _itemTapped(3);
                 Navigator.pop(context);
               },
             ),
@@ -104,13 +115,14 @@ class _TugasTujuhState extends State<TugasTujuh> {
               leading: Icon(Icons.watch_later_sharp),
               title: Text("Waktu"),
               onTap: () {
-                _itemTapped(4);
+                _itemTapped(2);
                 Navigator.pop(context);
               },
             ),
           ],
         ),
       ),
+
       body: _screen[_selectedIndex],
     );
   }

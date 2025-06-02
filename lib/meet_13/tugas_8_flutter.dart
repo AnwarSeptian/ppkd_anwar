@@ -23,13 +23,14 @@ class _TugasDelapanState extends State<TugasDelapan> {
           });
           print("Halaman saat ini : $_buttonSelected");
         },
+
         currentIndex: _buttonSelected,
-        selectedItemColor: Colors.lightBlueAccent,
-        unselectedItemColor: Colors.blueGrey,
+        selectedItemColor: Color(0XFF3B3B1A),
+        unselectedItemColor: Color(0XFFAEC8A4),
         unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.info_sharp), label: "About"),
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.info), label: "About"),
         ],
       ),
       body: _screen[_buttonSelected],
