@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ppkd_anwar/meet_14/halaman_sukses.dart';
-import 'package:ppkd_anwar/meet_6/tugas_6.dart';
 import 'package:ppkd_anwar/utils/button.dart';
 
 class Tugas14 extends StatefulWidget {
@@ -35,7 +33,12 @@ class _Tugas14State extends State<Tugas14> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Masukkan Email"),
+                  decoration: InputDecoration(
+                    labelText: "Masukkan Email",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
                   controller: _emailController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -49,7 +52,12 @@ class _Tugas14State extends State<Tugas14> {
                 SizedBox(height: 16),
                 TextFormField(
                   controller: _namaController,
-                  decoration: InputDecoration(labelText: "Masukkan Nama"),
+                  decoration: InputDecoration(
+                    labelText: "Masukkan Nama",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "nama anda wajib di isi";
@@ -57,15 +65,25 @@ class _Tugas14State extends State<Tugas14> {
                     return null;
                   },
                 ),
+                SizedBox(height: 16),
+
                 TextFormField(
                   decoration: InputDecoration(
                     labelText: "Masukkan No Handphone",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                   controller: _nohpController,
                 ),
                 SizedBox(height: 16),
                 TextFormField(
-                  decoration: InputDecoration(labelText: "Masukkan Domisili"),
+                  decoration: InputDecoration(
+                    labelText: "Masukkan Domisili",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
                   controller: _domisiliController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -102,15 +120,10 @@ class _Tugas14State extends State<Tugas14> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Terima Kasih, ${_namaController.text} dari ${_domisiliController.text}, telah mendaftar.",
-              ),
               SizedBox(height: 24),
               Text("Akun kamu berhasil di buat,"),
               // SizedBox(height: 8),
-              Text(
-                "Silahkan Login menggunakan email : ${_emailController.text}",
-              ),
+              Text("Klik Lanjut "),
               SizedBox(height: 24),
             ],
           ),
@@ -119,10 +132,17 @@ class _Tugas14State extends State<Tugas14> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TugasEnam()),
+                  MaterialPageRoute(
+                    builder:
+                        (context) => HalamanSukses(
+                          email: _emailController.text,
+                          domisili: _domisiliController.text,
+                          nama: _namaController.text,
+                        ),
+                  ),
                 );
               },
-              child: Text("Login"),
+              child: Text("Lanjut"),
             ),
           ],
         );

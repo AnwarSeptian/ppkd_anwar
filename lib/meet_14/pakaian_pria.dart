@@ -14,67 +14,67 @@ class _PakaianPriaState extends State<PakaianPria> {
       namaProduk: "T-Shirt biru",
       hargaProduk: "Rp. 30.000",
       fotoProduk: "assets/images/tshirt.webp",
-      fotoDiskon: "assets/images/bestseller.png",
+      fotoDiskon: true,
     ),
     ProductName(
       namaProduk: "Jeans Hitam",
       hargaProduk: "Rp. 200.000",
       fotoProduk: "assets/images/jeanshitam.webp",
-      fotoDiskon: "assets/images/sale.jfif",
+      fotoDiskon: false,
     ),
     ProductName(
       namaProduk: "Koko hijau",
       hargaProduk: "Rp. 150.000",
       fotoProduk: "assets/images/kokohijau.webp",
-      fotoDiskon: "assets/images/sale.jfif",
+      fotoDiskon: false,
     ),
     ProductName(
       namaProduk: "Kemeja Lengan Pendek",
       hargaProduk: "Rp. 150.000",
       fotoProduk: "assets/images/kemejahitam.jpg",
-      fotoDiskon: "assets/images/sale.jfif",
+      fotoDiskon: false,
     ),
     ProductName(
       namaProduk: "T-Shirt Semen Tiga Roda",
       hargaProduk: "Rp. 150.000",
       fotoProduk: "assets/images/tshirttigaroda.webp",
-      fotoDiskon: "assets/images/bestseller.png",
+      fotoDiskon: true,
     ),
     ProductName(
       namaProduk: "Kemeja Batik",
       hargaProduk: "Rp. 170.000",
       fotoProduk: "assets/images/kemajabatik.webp",
-      fotoDiskon: "assets/images/bestseller.png",
+      fotoDiskon: true,
     ),
     ProductName(
       namaProduk: "Tenun Kalimantan",
       hargaProduk: "Rp. 200.0000",
       fotoProduk: "assets/images/tenunkalimantan.webp",
-      fotoDiskon: "assets/images/sale.jfif",
+      fotoDiskon: false,
     ),
     ProductName(
       namaProduk: "Celana Pendek",
       hargaProduk: "Rp. 150.000",
       fotoProduk: "assets/images/celanapendek.webp",
-      fotoDiskon: "assets/images/bestseller.png",
+      fotoDiskon: true,
     ),
     ProductName(
       namaProduk: "Kemeja Flanel",
       hargaProduk: "Rp. 150.000",
       fotoProduk: "assets/images/flanel.jfif",
-      fotoDiskon: "assets/images/sale.jfif",
+      fotoDiskon: true,
     ),
     ProductName(
       namaProduk: "Kemeja Hawai",
       hargaProduk: "Rp. 150.000",
       fotoProduk: "assets/images/kemejahawai.webp",
-      fotoDiskon: "assets/images/bestseller.png",
+      fotoDiskon: true,
     ),
     ProductName(
       namaProduk: "Kemeja Lengan Pendek",
       hargaProduk: "Rp. 150.000",
       fotoProduk: "assets/images/kemejalenganpendek.jpg",
-      fotoDiskon: "assets/images/sale.jfif",
+      fotoDiskon: false,
     ),
   ];
 
@@ -96,7 +96,11 @@ class _PakaianPriaState extends State<PakaianPria> {
                 title: Text(product.namaProduk ?? ""),
                 subtitle: Text(product.hargaProduk),
                 trailing: CircleAvatar(
-                  backgroundImage: AssetImage(product.fotoDiskon ?? ""),
+                  backgroundImage: AssetImage(
+                    product.fotoDiskon == true
+                        ? "assets/images/bestseller.png"
+                        : "assets/images/sale.jfif",
+                  ),
                 ),
               ),
             );

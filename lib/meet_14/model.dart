@@ -3,7 +3,7 @@ class ProductName {
   final String namaProduk;
   final String hargaProduk;
   String fotoProduk;
-  String? fotoDiskon;
+  bool? fotoDiskon;
   ProductName({
     required this.namaProduk,
     required this.hargaProduk,
