@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_anwar/helper/preference.dart';
 import 'package:ppkd_anwar/meet_12/meet_12a.dart';
-import 'package:ppkd_anwar/meet_13/tugas_7_flutter.dart';
 import 'package:ppkd_anwar/meet_13/tugas_8_flutter.dart';
 import 'package:ppkd_anwar/meet_14/tugas_14.dart';
-import 'package:ppkd_anwar/meet_4/tugas_4_flutter.dart';
 
 class TugasEnam extends StatefulWidget {
   const TugasEnam({super.key, this.valueCheck});
@@ -19,6 +18,7 @@ class TugasEnam extends StatefulWidget {
 class _TugasEnamState extends State<TugasEnam> {
   bool _isChecked = false;
   bool valueCheck = false;
+  @override
   void initState() {
     super.initState();
     valueCheck = widget.valueCheck ?? false;
@@ -95,6 +95,8 @@ class _TugasEnamState extends State<TugasEnam> {
         onPressed:
             _isChecked
                 ? () {
+                  PreferenceHandler.saveLogin(true);
+
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (_) => TugasDelapan()),
