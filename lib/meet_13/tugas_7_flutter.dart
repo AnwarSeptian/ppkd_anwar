@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_anwar/constant/app_format.dart';
 import 'package:ppkd_anwar/meet_13/mode_gelap.dart';
-import 'package:ppkd_anwar/meet_13/mode_syarat.dart';
 import 'package:ppkd_anwar/meet_13/mode_tanggal.dart';
 import 'package:ppkd_anwar/meet_13/mode_waktu.dart';
-import 'package:ppkd_anwar/meet_4/tugas_4_flutter.dart';
 import 'package:ppkd_anwar/meet_14/kategori_produk.dart';
 import 'package:ppkd_anwar/meet_14/kategori_produk_a.dart';
 import 'package:ppkd_anwar/meet_14/pakaian_pria.dart';
+import 'package:ppkd_anwar/meet_16/login_screen.dart';
+import 'package:ppkd_anwar/meet_4/tugas_4_flutter.dart';
 
 class TugasTujuh extends StatefulWidget {
   const TugasTujuh({super.key});
@@ -138,6 +137,17 @@ class _TugasTujuhState extends State<TugasTujuh> {
                     _itemTapped(5);
                     Navigator.pop(context);
                   },
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("Logout"),
+              onTap: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreenApp()),
+                  (route) => false,
                 );
               },
             ),
