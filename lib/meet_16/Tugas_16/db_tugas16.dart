@@ -31,4 +31,19 @@ class DbTugas16 {
 
     return List.generate(maps.length, (i) => ModelTugas.fromMap(maps[i]));
   }
+
+  static Future<void> updateData(ModelTugas modeltugas) async {
+    final db = await DbTugas16.dbTugas();
+    await db.update(
+      'tugas',
+      modeltugas.toMap(),
+      where: 'id = ?',
+      whereArgs: [modeltugas.id],
+    );
+  }
+
+  static Future<void> deleteData(int id) async {
+    final db = await DbTugas16.dbTugas();
+    await db.delete('tugas', where: 'id = ?', whereArgs: [id]);
+  }
 }

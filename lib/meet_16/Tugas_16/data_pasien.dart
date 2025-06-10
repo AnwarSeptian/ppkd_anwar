@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_anwar/meet_16/Tugas_16/db_tugas16.dart';
+import 'package:ppkd_anwar/meet_16/Tugas_16/edit_page.dart';
 import 'package:ppkd_anwar/meet_16/Tugas_16/model_tugas.dart';
 
 class DataPasien extends StatefulWidget {
@@ -124,7 +125,7 @@ class _DataPasienState extends State<DataPasien> {
                         ),
                       ),
 
-                      SizedBox(height: 16),
+                      SizedBox(height: 4),
                       ElevatedButton(
                         onPressed: () {
                           simpanData();
@@ -136,8 +137,8 @@ class _DataPasienState extends State<DataPasien> {
                 ),
               ),
             ),
-            SizedBox(height: 12),
 
+            // SizedBox(height: 12),
             Row(
               children: [
                 Expanded(child: Divider(thickness: 4, endIndent: 8)),
@@ -148,7 +149,6 @@ class _DataPasienState extends State<DataPasien> {
                 Expanded(child: Divider(thickness: 4, indent: 8)),
               ],
             ),
-            SizedBox(height: 12),
             Expanded(
               child: Container(
                 color: Color(0xffAF3E3E),
@@ -160,12 +160,50 @@ class _DataPasienState extends State<DataPasien> {
                       final tugas = daftarPasien[index];
                       return Card(
                         child: ListTile(
-                          leading: CircleAvatar(child: Text("${tugas.id}")),
+                          leading: CircleAvatar(child: Text("${index + 1}")),
                           title: Text(tugas.nama),
                           subtitle: Text("Umur : ${tugas.umur}"),
-                          trailing: Text(
-                            "Kondisi :${tugas.kondisi}",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                "Kondisi :${tugas.kondisi}",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              Row(
+                                children: [
+                                  IconButton(
+                                    iconSize: 20,
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder:
+                                              (_) => EditPage(
+                                                modeltugas: ModelTugas(
+                                                  id: tugas.id,
+                                                  nama: tugas.nama,
+                                                  kondisi: tugas.kondisi,
+                                                  umur: tugas.umur,
+                                                ),
+                                              ),
+                                        ),
+                                      ).then((value) => muatData());
+                                    },
+                                    icon: Icon(Icons.edit),
+                                  ),
+                                  IconButton(
+                                    onPressed: () async {
+                                      await DbTugas16.deleteData(tugas.id!);
+                                      setState(() {
+                                        muatData();
+                                      });
+                                    },
+                                    icon: Icon(Icons.delete),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       );
