@@ -6,10 +6,10 @@ import 'package:ppkd_anwar/meet_13/mode_syarat.dart';
 import 'package:ppkd_anwar/meet_13/mode_tanggal.dart';
 import 'package:ppkd_anwar/meet_13/mode_waktu.dart';
 import 'package:ppkd_anwar/meet_13/tugas_8_flutter.dart';
-import 'package:ppkd_anwar/meet_16/Tugas_16/data_pasien.dart';
 import 'package:ppkd_anwar/meet_16/database/register_screen.dart';
 import 'package:ppkd_anwar/meet_16/login_screen.dart';
 import 'package:ppkd_anwar/meet_6/tugas_6.dart';
+import 'package:ppkd_anwar/tugas14/view/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
       ),
-      home: DataPasien(),
+      home: HomePage(),
     );
   }
 }
