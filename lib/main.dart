@@ -9,7 +9,7 @@ import 'package:ppkd_anwar/meet_13/tugas_8_flutter.dart';
 import 'package:ppkd_anwar/meet_16/database/register_screen.dart';
 import 'package:ppkd_anwar/meet_16/login_screen.dart';
 import 'package:ppkd_anwar/meet_6/tugas_6.dart';
-import 'package:ppkd_anwar/tugas_15/view/login.dart';
+import 'package:ppkd_anwar/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
       ),
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_anwar/constant/app_color.dart';
 import 'package:ppkd_anwar/tugas_15/api/user_api.dart';
+import 'package:ppkd_anwar/tugas_15/preference.dart';
+import 'package:ppkd_anwar/tugas_15/view/home.dart';
 import 'package:ppkd_anwar/tugas_15/view/register.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -20,23 +22,32 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
 
   void login() async {
-    final res = await UserLogin.loginUser(
+    setState(() {
+      isLoading = true;
+    });
+    final res = await UserService.loginUser(
       email: emailController.text,
-      name: nameController.text,
       password: passwordController.text,
     );
     if (res["data"] != null) {
+      PreferenceHandler.saveToken(res['data']['token']);
+      print('Token: ${res['data']['token']}');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Registration successful!"),
+          content: Text("Login berhasil"),
           backgroundColor: AppColor.hijau3,
         ),
+      );
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => HomeApi()),
+        (route) => false,
       );
     } else if (res["errors"] != null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            "Maaf, ${res["message"]} silahkan login ",
+            "Maaf, login gagal ${res["message"]}  ",
             style: TextStyle(color: AppColor.black22),
           ),
           backgroundColor: AppColor.cream2,
@@ -108,27 +119,34 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: double.infinity,
                 height: 56,
                 child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      login();
-                      print('Email : ${emailController.text}');
-                      print('Password : ${passwordController.text}');
-                    }
-                  },
+                  onPressed:
+                      isLoading
+                          ? null
+                          : () {
+                            if (_formKey.currentState!.validate()) {
+                              login();
+
+                              print('Email : ${emailController.text}');
+                              print('Password : ${passwordController.text}');
+                            }
+                          },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueGrey,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6),
                     ),
                   ),
-                  child: Text(
-                    "Login",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
+                  child:
+                      isLoading
+                          ? CircularProgressIndicator()
+                          : Text(
+                            "Login",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
                 ),
               ),
               height(28),

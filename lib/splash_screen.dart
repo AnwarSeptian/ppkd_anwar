@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_anwar/helper/preference.dart';
-import 'package:ppkd_anwar/meet_16/login_screen.dart';
+import 'package:ppkd_anwar/tugas_15/preference.dart';
+import 'package:ppkd_anwar/tugas_15/view/home.dart';
+import 'package:ppkd_anwar/tugas_15/view/login.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,44 +13,49 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   void changePage() {
     Future.delayed(Duration(seconds: 3), () async {
-      bool isLogin = await PreferenceHandler.getLogin();
+      String? isLogin = await PreferenceHandler.getToken();
       print("isLogin : $isLogin");
-      // if (isLogin) {
-      //   return Navigator.pushNamedAndRemoveUntil(
-      //     context,
-      //     TugasDelapan.id,
-      //     (route) => false,
-      //   );
-      // } else {
-      Navigator.pushNamedAndRemoveUntil(
-        context,
-        LoginScreenApp.id,
-        (route) => false,
-      );
-    });
+      if (isLogin != null) {
+        return Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => HomeApi()),
+          (route) => false,
+        );
+      } else {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScreen()),
+          (route) => false,
+        );
+      }
+    }); // <- kurung ini tadi kurang
   }
 
   @override
   void initState() {
+    super.initState(); // super.initState() harus dipanggil dulu
     changePage();
-    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Spacer(),
-
-            Image.asset("assets/images/enzo.png"),
-            SizedBox(height: 20),
-            Text("Welcomee", style: TextStyle(fontWeight: FontWeight.bold)),
-            Spacer(),
-            SafeArea(child: Text("v 1.0.0", style: TextStyle(fontSize: 10))),
-          ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Scaffold(
+        body: SafeArea(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("assets/images/login.jpg"),
+                SizedBox(height: 20),
+                Text("Welcomee", style: TextStyle(fontWeight: FontWeight.bold)),
+                SafeArea(
+                  child: Text("v 1.0.0", style: TextStyle(fontSize: 10)),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
